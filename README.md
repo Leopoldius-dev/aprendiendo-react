@@ -12,3 +12,5 @@ Update from VS Code v1.1.
 Update from VS Code v1.2.
 
 Update from VS Code v1.3.
+
+Update from VS Code v1.4.
