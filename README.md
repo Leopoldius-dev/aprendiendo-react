@@ -10,3 +10,5 @@ Update from GitHub v1.0.
 Update from VS Code v1.1.
 
 Update from VS Code v1.2.
+
+Update from VS Code v1.3.
