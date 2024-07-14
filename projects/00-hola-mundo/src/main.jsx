@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
+import {App} from './App.jsx'
+import './index.css'
 
 /*
 PascalCase
@@ -9,6 +9,24 @@ camelCase
 snake-case
 */
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
+  <App />
+)
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const Button = ({text}) => {
   return (
     <button>
@@ -27,6 +45,7 @@ root.render(
     <Button text="Button 3"/>
   </React.Fragment>
 )
+*/
 
 /*
 ReactDOM.createRoot(document.getElementById('root')).render(
