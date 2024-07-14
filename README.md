@@ -6,4 +6,3 @@ Midudev React Course
 #New folder created in local repo: projects
 
 14/07/2024 - Update to be pulled locally
-git revert commit
