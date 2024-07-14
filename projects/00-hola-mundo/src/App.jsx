@@ -1,21 +1,38 @@
 import './App.css'
+import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
-export function App() {
-return (
-    <article style={{ display: 'flex', alignItems: 'center', color:'#fff'}}>
-        <header>
-            <img alt="Un avatar cualquiera" src="https://unavatar.io/google/netflix.com"/>
-            <div>
-                <strong>Roberto Sanz</strong>
-                <span>@robertsd</span>
-            </div>
-        </header>
+const users = [
+  {
+    userName: 'rsd',
+    name: 'Roberto S.',
+    isFollowing: true
+  },
+  {
+    userName: 'shg',
+    name: 'Sandra H.',
+    isFollowing: false
+  },
+  {
+    userName: 'PacoHdezs',
+    name: 'Paco H.',
+    isFollowing: true
+  }
+]
 
-        <aside>
-            <button>
-                Seguir
-            </button>
-        </aside>
-    </article>
-)
+export function App () {
+  return (
+    <section className='App'>
+      {
+        users.map(({ userName, name, isFollowing }) => (
+          <TwitterFollowCard
+            key={userName}
+            userName={userName}
+            initialIsFollowing={isFollowing}
+          >
+            {name}
+          </TwitterFollowCard>
+        ))
+      }
+    </section>
+  )
 }
