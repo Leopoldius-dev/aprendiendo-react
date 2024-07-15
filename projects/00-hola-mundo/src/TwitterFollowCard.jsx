@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 //Exportamos la función para usarla en App.jsx como componente
-export function TwitterFollowCard ({ key, userName, initialIsFollowing }) {
+export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
   
   //Comprobamos ele stado del botón
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
@@ -22,6 +22,13 @@ export function TwitterFollowCard ({ key, userName, initialIsFollowing }) {
     setIsFollowing(!isFollowing)
   }
 
+  //Manejamos el clic en la imagen
+  const handleImgClick = () => {
+    if (isFollowing) {
+      window.location.href = `https://github.com/${userName}/`;
+    }
+  }
+  
   //HTML final del Follow Card UI
   return (
     <article className='tw-followCard'>
@@ -30,9 +37,10 @@ export function TwitterFollowCard ({ key, userName, initialIsFollowing }) {
           className='tw-followCard-avatar'
           alt='El avatar de midudev'
           src={`https://unavatar.io/${userName}`}
+          onClick={handleImgClick}
         />
         <div className='tw-followCard-info'>
-          <strong>{key}</strong>
+          <strong>{children}</strong>
           <span className='tw-followCard-infoUserName'>@{userName}</span>
         </div>
       </header>
