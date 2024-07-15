@@ -1,19 +1,28 @@
+//Importamos la función de React para comprobar el estado del botón
 import { useState } from 'react'
 
-export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
+//Exportamos la función para usarla en App.jsx como componente
+export function TwitterFollowCard ({ key, userName, initialIsFollowing }) {
+  
+  //Comprobamos ele stado del botón
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
   console.log('[TwitterFollowCard] render with userName: ', userName)
 
+  //Seteamos el texto del botón en función de si es true/false
   const text = isFollowing ? 'Siguiendo' : 'Seguir'
+
+  //Seteamos el className
   const buttonClassName = isFollowing
     ? 'tw-followCard-button is-following'
     : 'tw-followCard-button'
 
+  //Definimos el cambio de estado del botón al hacer click
   const handleClick = () => {
     setIsFollowing(!isFollowing)
   }
 
+  //HTML final del Follow Card UI
   return (
     <article className='tw-followCard'>
       <header className='tw-followCard-header'>
@@ -23,7 +32,7 @@ export function TwitterFollowCard ({ children, userName, initialIsFollowing }) {
           src={`https://unavatar.io/${userName}`}
         />
         <div className='tw-followCard-info'>
-          <strong>{children}</strong>
+          <strong>{key}</strong>
           <span className='tw-followCard-infoUserName'>@{userName}</span>
         </div>
       </header>
