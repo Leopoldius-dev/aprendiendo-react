@@ -12,7 +12,7 @@ export function TwitterFollowCard ({ key, userName, initialIsFollowing }) {
   //Seteamos el texto del botón en función de si es true/false
   const text = isFollowing ? 'Siguiendo' : 'Seguir'
 
-  //Seteamos el className
+  //Seteamos el className en función de si es true/false
   const buttonClassName = isFollowing
     ? 'tw-followCard-button is-following'
     : 'tw-followCard-button'
