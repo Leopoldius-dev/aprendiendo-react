@@ -18,11 +18,17 @@
   object-fit: contain;
 }
 
+.carousel .slide item {
+  display: none;
+}
+
 .carousel-status {
   display: none;
 }
 
+
 .legend {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+  display: none;
 }
