@@ -1,0 +1,24 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
+}
+
+.carousel .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.legend {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
