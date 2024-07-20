@@ -4,20 +4,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './App.css';
 import { logoNames } from './constants/constants.js';
 
-const images = [
-    "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
-    "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-    "https://astro.js.org/astro.png"
-];
-
 export function App() {
     return (
       <div className="App">
           <Carousel>
               {
-                logoNames.map((logo, index) => (
+                logoNames.map((logo, index, image) => (
                     <div key={index}>
-                        <img src={images[index]} alt={logo.userName} />
+                        <img src={logo.image} alt={logo.userName} />
                         <p className="legend">{logo.name}</p>
                     </div>
                 ))

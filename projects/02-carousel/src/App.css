@@ -18,6 +18,10 @@
   object-fit: contain;
 }
 
+.carousel-status {
+  display: none;
+}
+
 .legend {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
