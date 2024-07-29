@@ -5,13 +5,20 @@ import "./App.css";
 
 function App() {
 	const [count, setCount] = useState(0);
+	const [isLogoLarge, setIsLogoLarge] = useState(false);
 
+	const handleLogoClick = () => {
+		setIsLogoLarge(prevState => !prevState);
+	  };
+	
 	return (
 		<div className="App">
 			<div>
-				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
+				<img src={reactLogo}
+					className={`logo react ${isLogoLarge ? "large" : ""}`}
+					alt="React logo"
+					onClick={handleLogoClick}
+				/>
 			</div>
 			<h1>Rspack + React</h1>
 			<div className="card">
@@ -22,9 +29,6 @@ function App() {
 					Edit <code>src/App.jsx</code> and save to test HMR
 				</p>
 			</div>
-			<p className="read-the-docs">
-				Click on the Rspack and React logos to learn more
-			</p>
 		</div>
 	);
 }
