@@ -7,3 +7,5 @@
 | `02` | UI: Carousel | [Ver](projects/02-carousel) | [Abrir](https://robertosd-carousel.surge.sh/)|
 | `03` | UI: Lista de productos | [Ver](projects/03-list) | [Abrir](https://robertosd-list.surge.sh/)|
 | `04` | Juego: Learning React | [Ver](projects/04-juego-react) | [Abrir](https://robertosd-juego-react.surge.sh/)|
+| `05` | Rspack Practice | [Ver](projects/05-rspack-project) | [Abrir]()|
+
