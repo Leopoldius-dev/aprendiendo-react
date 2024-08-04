@@ -1,46 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Set from './Set';
 import Point from './Point';
+import { setPoint, setName } from '../scoreboardSlice';
 
 const Scoreboard = () => {
-  const [sets, setSets] = useState([{ games: [0, 0] }, { games: [0, 0] }, { games: [0, 0] }]);
-  const [currentSet, setCurrentSet] = useState(0);
-  const [currentGame, setCurrentGame] = useState([0, 0]);
-  const [playerNames, setPlayerNames] = useState(['Player 1', 'Player 2']);
-  const [gameOver, setGameOver] = useState(false);
+  const sets = useSelector((state) => state.scoreboard.sets);
+  const currentGame = useSelector((state) => state.scoreboard.currentGame);
+  const playerNames = useSelector((state) => state.scoreboard.playerNames);
+  const gameOver = useSelector((state) => state.scoreboard.gameOver);
+  const dispatch = useDispatch();
 
   const handlePoint = (player) => {
-    if (gameOver) return;
-
-    const newGame = [...currentGame];
-    newGame[player]++;
-    if (newGame[player] > 3 && (newGame[player] - newGame[1 - player] >= 1)) {
-      const newSets = [...sets];
-      newSets[currentSet].games[player]++;
-      setSets(newSets);
-      setCurrentGame([0, 0]);
-      if (newSets[currentSet].games[player] >= 6 && newSets[currentSet].games[player] - newSets[currentSet].games[1 - player] >= 2) {
-        if (newSets.filter(set => set.games[player] >= 6).length >= 2) {
-          setGameOver(true);
-        } else {
-          setCurrentSet(currentSet + 1);
-        }
-      }
-    } else {
-      setCurrentGame(newGame);
-    }
+    dispatch(setPoint({ player }));
   };
 
   const handleNameChange = (index, event) => {
-    const newNames = [...playerNames];
-    newNames[index] = event.target.value;
-    setPlayerNames(newNames);
+    dispatch(setName({ index, name: event.target.value }));
   };
 
   return (
     <div className="scoreboard">
       <div className="player-row">
-        <input className="names" type="text" value={playerNames[0]} onChange={(e) => handleNameChange(0, e)} />
+        <input type="text" value={playerNames[0]} onChange={(e) => handleNameChange(0, e)} />
         {sets.map((set, index) => (
           <Set key={index} games={set.games[0]} />
         ))}
