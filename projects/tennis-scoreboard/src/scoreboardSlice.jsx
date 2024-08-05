@@ -36,8 +36,14 @@ const scoreboardSlice = createSlice({
       const { index, name } = action.payload;
       state.playerNames[index] = name;
     },
+    resetGame: (state) => {
+      state.sets = [{ games: [0, 0] }, { games: [0, 0] }, { games: [0, 0] }];
+      state.currentSet = 0;
+      state.currentGame = [0, 0];
+      state.gameOver = false;
+    },
   },
 });
 
-export const { setPoint, setName } = scoreboardSlice.actions;
+export const { setPoint, setName, resetGame } = scoreboardSlice.actions;
 export default scoreboardSlice.reducer;
