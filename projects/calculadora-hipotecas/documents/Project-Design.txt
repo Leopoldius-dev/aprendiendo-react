@@ -1,0 +1,52 @@
+- El background color de la página será eigengrau.
+- Las letrás serán azul claro.
+- Campos de entrada de texto:
+	- Ingresos netos mensuales: opcional.
+	- Precio de vivienda ofertado: opcional.
+	- Tipo de interés: obligatorio.
+	- Duración del préstamo: obligatorio.
+
+- Campos de salida: se mostrarán únicamente al pulsar el botón "Calcular".
+	- Cuota máxima: expresado en euros, y con redondeo a 2 decimales.
+	- Capital prestado por banco: expresado en euros, y con redondeo a 2 decimales.
+	- Precio máximo de vivienda: expresado en euros, y con redondeo a 2 decimales.
+	- Ahorro entrada: expresado en euros, y con redondeo a 2 decimales.
+	- Gastos escrituración: expresado en euros, y con redondeo a 2 decimales.
+
+- Botón "Calcular". Al pulsarlo, realizará los siguientes cálculos para los campos de salida:
+	- Cuota máxima:
+		- Si el campo de entrada "Ingresos netos mensuales" no está vacío, corresponde al 30% del valor ingresado en los
+		"Ingresos netos mensuales". Para calcularlo, se multiplica el valor del campo por 0,3.
+		
+		- Si el campo de entrada "Ingresos netos mensuales" está vacío, se calculará en base al valor del campo
+		"Precio de vivienda ofertado" de la siguiente forma:
+			- P x ((1+i) x i / (1+i)^n - 1), donde P es el 80% del valor del campo "Precio de vivienda ofertado", es decir,
+			el valor del campo por 0,8; i es el tipo de interés entre 12 (por ejemplo, si el tipo de interés es de un 3%, deberá
+			ser 3/100 = 0,03, y luego dividido por 12, lo que daría 0.0025), y n es el tiempo expresado en meses (para calcularlo,
+			se multiplica el valor del campo "Duración del préstamo" por 12).
+	
+	- Capital prestado por banco:
+		- Si el campo de entrada "Precio de vivienda ofertado" no está vacío, se calculará en base al 80% del valor del campo
+		"Precio de vivienda ofertado", es decir, el valor del campo por 0,8.
+		
+		- Si el campo de entrada "Precio de vivienda ofertado" está vacío, se calculará en base al valor de la "Cuota máxima"
+		de la siguiente forma:
+			- Cuota máxima x ((1+i)^n - 1 / (1+i) x i), donde Cuota máxima es el valor calculado para el campo "Cuota máxima",
+			i es el tipo de interés entre 12 (por ejemplo, si el tipo de interés es de un 3%, deberá ser 3/100 = 0,03, y luego
+			dividido por 12, lo que daría 0.0025), y n es el tiempo expresado en meses (para calcularlo, se multiplica el valor
+			del campo "Duración del préstamo" por 12).
+			
+	- Precio máximo de vivienda:
+		- Se calcula en base al valor del campo calculado "Capital prestado por banco" dividido entre 0,8.
+		
+	- Ahorro entrada:
+		- Si el campo de entrada "Precio de vivienda ofertado" no está vacío, se calculará en base al 20% del valor del campo
+		"Precio de vivienda ofertado", es decir, el valor del campo por 0,2.
+		
+		- Si el campo de entrada "Precio de vivienda ofertado" está vacío, se calculará en base al 10% del valor del campo calculado
+		"Precio máximo de vivienda", es decir, el valor del campo por 0,1.
+
+- Botón "Resetear":
+	- Resetear el valor de los campos de salida
+	- Ocultar los campos de salida
+	- Resetear el valor de los campos de entrada
