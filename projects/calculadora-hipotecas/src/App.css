@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+button + button {
+  margin-top: 10px;
+  background-color: #FF7F7F; /* Rojo claro para diferenciar */
+}
+
+button + button:hover {
+  background-color: #FF4C4C; /* Rojo más oscuro en hover */
+}

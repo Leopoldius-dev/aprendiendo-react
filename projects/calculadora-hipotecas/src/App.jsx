@@ -8,6 +8,15 @@ function App() {
   const [resultados, setResultados] = useState(null);
 
   const calcularHipoteca = () => {
+    // Verificar si los campos obligatorios están llenos
+    if (!tipoInteres || !duracionPrestamo) {
+      alert('Por favor, rellene los campos obligatorios.');
+      return;
+    } else if (!ingresosNetos && !precioVivienda){
+      alert('Por favor, ingrese un Ingreso neto o un Precio de vivienda.');
+      return;
+    }
+
     const i = parseFloat(tipoInteres) / 100 / 12;
     const n = parseInt(duracionPrestamo) * 12;
     let cuotaMaxima, capitalPrestado, precioMaxVivienda, ahorroEntrada, gastosEscrituracion;
@@ -36,6 +45,17 @@ function App() {
       ahorroEntrada: ahorroEntrada.toFixed(2),
       gastosEscrituracion: gastosEscrituracion.toFixed(2),
     });
+  };
+
+  const resetearCampos = () => {
+    // Resetea los valores de los campos de entrada
+    setIngresosNetos('');
+    setPrecioVivienda('');
+    setTipoInteres('');
+    setDuracionPrestamo('');
+
+    // Oculta los resultados
+    setResultados(null);
   };
 
   return (
@@ -75,6 +95,7 @@ function App() {
         />
       </div>
       <button onClick={calcularHipoteca}>Calcular</button>
+      <button onClick={resetearCampos}>Resetear</button>
 
       {resultados && (
         <div>
